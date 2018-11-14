@@ -1,0 +1,48 @@
+1- 
+CREATE DATABASE call_list;
+
+\c call_list;
+
+2- 
+CREATE TABLE users (
+ id SERIAL PRIMARY KEY,
+ first_name varchar(30),
+ email varchar(30)
+); 
+
+3-
+INSERT INTO users (first_name, email) VALUES ('Carlos', 'carlos@gmail.com'); 
+
+4-
+INSERT INTO users (first_name, email) VALUES ('Laura', 'laura@gmail.com'); 
+
+5-
+Crear una tabla llamada calls con los campos id (clave primaria), phone, date, user_id (foreign key relacionado a users).
+
+CREATE TABLE calls (
+ id SERIAL PRIMARY KEY,
+ phone INTEGER,
+ date DATE,
+ user_id INTEGER REFERENCES users (id)
+); 
+
+6-
+ALTER TABLE users ADD COLUMN last_name varchar(30);
+
+7-
+UPDATE users SET last_name = 'Perez' WHERE first_name = 'Carlos'; 
+
+8-
+UPDATE users SET last_name = 'Baeza' WHERE first_name = 'Laura';  
+
+9-
+INSERT INTO calls (phone,date,user_id) VALUES ('981298329','13-08-2018',2);
+
+10-
+INSERT INTO calls (phone,date,user_id) VALUES ('123456789','05-06-2018',1);
+
+11-
+INSERT INTO users (first_name, email, last_name) VALUES ('danitza','danitza@gmail.com','baeza');
+
+
+ 
